@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>了解 500彩票网官方 · 站点导航介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f2f2;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 780px;
+            width: 100%;
+        }
+
+        /* 开场短句 */
+        .opening {
+            margin-bottom: 2.5rem;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .opening p {
+            font-size: 1.6rem;
+            font-weight: 380;
+            letter-spacing: 0.02em;
+            color: #1e2b3a;
+            line-height: 1.4;
+            margin-bottom: 0.4rem;
+        }
+
+        .opening .sub {
+            font-size: 1rem;
+            color: #6b7a8a;
+            border-left: 3px solid #b0c4d8;
+            padding-left: 1rem;
+            margin-top: 0.6rem;
+            font-style: normal;
+        }
+
+        /* 承接段落卡片 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.02);
+            border: 1px solid #eaeef2;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #2f4052;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card .highlight {
+            background: #f7f9fc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 480;
+            color: #1e3c5a;
+        }
+
+        /* 特点列表 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 0.8rem;
+        }
+
+        .feature-item {
+            flex: 1 1 170px;
+            background: #f9fbfd;
+            padding: 1rem 1.2rem;
+            border-radius: 14px;
+            border: 1px solid #e6edf4;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .feature-item h4 {
+            font-size: 1.05rem;
+            font-weight: 520;
+            color: #1e3b4f;
+            margin-bottom: 0.35rem;
+            letter-spacing: 0.01em;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #4b5e70;
+            line-height: 1.5;
+        }
+
+        /* 温和提示 / FAQ 摘要 */
+        .faq-note {
+            background: #f9fafc;
+            border: 1px solid #dce5ed;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+        }
+
+        .faq-note h3 {
+            font-size: 1.1rem;
+            font-weight: 540;
+            margin-bottom: 1rem;
+            color: #1b3142;
+            letter-spacing: 0.02em;
+        }
+
+        .faq-note details {
+            margin-bottom: 0.6rem;
+            border-bottom: 1px dashed #d5dee6;
+            padding-bottom: 0.5rem;
+        }
+
+        .faq-note details:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-note summary {
+            font-weight: 470;
+            cursor: default;
+            color: #2c4b63;
+            padding: 0.2rem 0;
+            outline: none;
+        }
+
+        .faq-note summary::-webkit-details-marker {
+            color: #7c91a3;
+        }
+
+        .faq-note .answer {
+            margin: 0.5rem 0 0.2rem 0.8rem;
+            font-size: 0.92rem;
+            color: #3a5369;
+        }
+
+        /* 温和结尾 */
+        .gentle-footer {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e2e9f0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+            margin-top: 0.5rem;
+        }
+
+        .gentle-footer p {
+            font-size: 0.98rem;
+            color: #314a5e;
+            margin-bottom: 0.6rem;
+        }
+
+        .gentle-footer .signature {
+            display: inline-block;
+            background: #eef3f8;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #3e5c72;
+        }
+
+        a {
+            color: #1f5880;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.1s;
+        }
+
+        a:hover {
+            border-bottom-color: #1f5880;
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .opening {
+                padding: 1.5rem 1.2rem;
+            }
+            .opening p {
+                font-size: 1.3rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .faq-note {
+                padding: 1.3rem 1.2rem;
+            }
+            .gentle-footer {
+                padding: 1.3rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        <p>刚打开这个页面，你可能在找：<br>一个清晰、可信任的站点入口。</p>
+        <div class="sub">—— 这里就是 <a href="https://portals-500.com">500彩票网官方</a> 的简单介绍。</div>
+    </div>
+
+    <!-- 承接段落 从用户想快速识别网站用途的角度 -->
+    <div class="card">
+        <p>无论你之前是否接触过，快速了解一个平台最直接的方式就是弄清楚它提供什么。这个网站围绕彩票资讯、玩法介绍与相关服务展开，聚合了许多用户关心的基础信息。</p>
+        <p>很多人第一次来访时，会想确认：<br>
+        “这个界面是不是我印象中的那个平台？”“信息是否可靠？”“我能在这里了解哪些内容？”<br>
+        带着这些自然的疑问，下面的特点列表可以帮你快速对照。</p>
+    </div>
+
+    <!-- 特点列表 -->
+    <div class="card">
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h4>信息聚合</h4>
+                <p>常见彩种说明、规则介绍、开奖结果查询入口整合，便于浏览对比。</p>
+            </div>
+            <div class="feature-item">
+                <h4>界面简洁</h4>
+                <p>去除了杂乱模块，重要导航清晰，减少寻找成本。</p>
+            </div>
+            <div class="feature-item">
+                <h4>持续更新</h4>
+                <p>内容跟随行业动态调整，保持资讯的时效与适用性。</p>
+            </div>
+            <div class="feature-item">
+                <h4>专注基础</h4>
+                <p>不堆砌浮夸承诺，注重提供平实、可参考的彩票相关材料。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 场景 / 常见问题摘要 (FAQ 风格) -->
+    <div class="faq-note">
+        <h3>一些你可能想了解的</h3>
+        <details>
+            <summary>这个网站主要面向哪些人？</summary>
+            <div class="answer">适合希望快速找到彩票资讯入口、了解规则说明或关注开奖动态的用户，无论新手还是有一定经验的朋友都能有所参考。</div>
+        </details>
+        <details>
+            <summary>内容是否可靠？</summary>
+            <div class="answer">所有展示信息均来自公开资料与官方公告，不包含个人推测或诱导性表述。你可以通过 <a href="https://portals-500.com">500彩票网官方</a> 页面进一步核实最新信息。</div>
+        </details>
+        <details>
+            <summary>是否需要注册或下载？</summary>
+            <div class="answer">本介绍页仅为信息汇总参考，具体操作以目标站点实际流程为准。建议直接浏览网站首页获取完整指引。</div>
+        </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="gentle-footer">
+        <p>希望这份简单的介绍能帮你更快地了解这个站点的轮廓。</p>
+        <p>如果你觉得有用，可以收藏或分享给有同样需求的朋友。需要更详细的内容，随时回到 <a href="https://portals-500.com">500彩票网官方</a> 查看最新页面。</p>
+        <div class="signature">—— 一份安静的导航说明</div>
+    </div>
+
+</div>
+</body>
+</html>
