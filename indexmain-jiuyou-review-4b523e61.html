@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游娱乐 · 介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.7;
+            color: #1f2a3a;
+            background: #f7f8fb;
+        }
+
+        /* === 深色头图 (hero) === */
+        .hero {
+            background: linear-gradient(145deg, #0b1825 0%, #1d2e40 100%);
+            padding: 3.6rem 1.5rem 3rem;
+            text-align: center;
+            color: #e4edf5;
+            position: relative;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: #f7f8fb;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            font-weight: 300;
+            opacity: 0.8;
+            max-width: 480px;
+            margin: 0 auto 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* === 浅色正文区 === */
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3.5rem;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            margin-top: -0.5rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .section p {
+            margin-bottom: 1.15rem;
+            text-align: justify;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #c44536;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(196, 69, 54, 0.25);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #a73023;
+            border-bottom-color: #a73023;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+            margin: 1.6rem 0 1.2rem;
+            padding: 0;
+            list-style: none;
+        }
+
+        .feature-list li {
+            flex: 1 1 160px;
+            background: #f4f6fa;
+            padding: 0.75rem 1.1rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #1f2a3a;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .feature-list li::before {
+            content: "✦";
+            color: #c44536;
+            font-weight: 400;
+            margin-right: 0.25rem;
+        }
+
+        .faq-summary {
+            margin-top: 1.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eaeaef;
+        }
+
+        .faq-summary h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #1d2e40;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item strong {
+            font-weight: 500;
+            color: #1f2a3a;
+        }
+
+        .faq-item p {
+            margin: 0.1rem 0 0.4rem 0;
+            font-size: 0.95rem;
+            color: #3a4a5c;
+        }
+
+        .closing {
+            margin-top: 1.8rem;
+            padding: 1.2rem 0 0.2rem;
+            font-style: normal;
+            color: #3a4a5c;
+            border-top: 1px solid #eaeaef;
+        }
+
+        .closing p {
+            margin-bottom: 0.4rem;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero {
+                padding: 2.6rem 1rem 2.4rem;
+                min-height: 220px;
+            }
+            .section {
+                padding: 1.6rem 1.2rem;
+                border-radius: 20px;
+            }
+            .feature-list {
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+            .feature-list li {
+                flex: 1 1 auto;
+            }
+            .container {
+                padding: 0 1rem 2.5rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+            .hero .tagline {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1>九游娱乐</h1>
+    <p class="tagline">一处将体验与信任放在首位的线上场所<br>故事从一段朴素的对话开始</p>
+</header>
+
+<main class="container">
+    <div class="section">
+
+        <!-- 开场短句 / 承接段落 -->
+        <p>许多年后，我依然记得第一次打开那个页面的下午。没有炫目的弹窗，也没有急切的催促，只有一行简洁的提示：“欢迎。” 后来我才知道，那种安静而克制的氛围并非偶然——它是 <a href="https://indexmain-jiuyou.com">九游娱乐</a> 从一开始就坚持的基调：先提供可信赖的环境，再谈其他。</p>
+
+        <p>这份介绍页，正是想以同样的语调，把关于这个站点的故事讲给你听。它不急于证明什么，只是希望你在浏览时，能感受到那些藏在细节里的用心。</p>
+
+        <!-- 特点列表 (叙事风格) -->
+        <ul class="feature-list">
+            <li>界面干净，信息层级清晰</li>
+            <li>内容更新有迹可循</li>
+            <li>功能路径直观，减少困惑</li>
+            <li>不主动推送未经验证的消息</li>
+            <li>支持多种设备自适应</li>
+        </ul>
+
+        <p>这些特点并非一日之功。团队在后台默默调整布局、优化反馈提示、修订文案措辞，为的就是让每一位到访者都能在最短时间内找到自己需要的部分——无论那是某一条说明，还是对整个平台的初步印象。</p>
+
+        <!-- 场景说明 (温和) -->
+        <p>假如你是一个习惯先读“关于我们”再决定是否深入的人，那么这里或许正合你意。首页没有铺天盖地的宣传语，取而代之的是分区的信息块和清晰的导航。你甚至可以把它看作一本开放的日志：每一次迭代、每一项调整，都留有温和的痕迹。</p>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <h3>一些你可能想知道的</h3>
+            <div class="faq-item">
+                <strong>这个网站主要提供什么？</strong>
+                <p>它是一个综合性的线上服务入口，围绕娱乐与信息整合展开。所有内容均遵循常规的合规标准，无夸大宣传。</p>
+            </div>
+            <div class="faq-item">
+                <strong>如何判断信息是否可靠？</strong>
+                <p>站内信息均标注来源或更新日期，重要页面附有说明文档。您也可以直接通过页面底部的联系方式反馈疑问。</p>
+            </div>
+            <div class="faq-item">
+                <strong>页面风格会突然改变吗？</strong>
+                <p>设计以稳定为主，小范围优化时会提前在更新日志中说明。目前采用的深色头图与浅色正文区是长期基调。</p>
+            </div>
+        </div>
+
+        <!-- 温和结尾 -->
+        <div class="closing">
+            <p>故事说到这里，其实还远未结束。每一次访问，都是新段落的开篇。</p>
+            <p>如果你愿意，可以从 <a href="https://indexmain-jiuyou.com">九游娱乐</a> 开始，亲自感受这份平淡但真实的线上存在。没有催促，没有浮夸，只有一句安静的“欢迎”。</p>
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>
