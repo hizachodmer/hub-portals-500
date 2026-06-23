@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>信息索引 · 九游娱乐资料卡</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f7fc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1f2a3f;
+      line-height: 1.6;
+      padding: 24px 20px 48px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 主视觉 — 网格卡片背景 + 蓝绿点缀 */
+    .hero {
+      background: linear-gradient(145deg, #e3f0f5 0%, #d4e9ee 100%);
+      border-radius: 32px;
+      padding: 48px 32px 40px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0, 70, 80, 0.08);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(0, 170, 150, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: -30px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(30, 140, 180, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0b3b44;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 12px;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #1f5b66;
+      max-width: 560px;
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(2px);
+      padding: 8px 16px 10px 16px;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    .hero .meta-tag {
+      margin-top: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(2px);
+      padding: 6px 20px 6px 16px;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      color: #1b5a64;
+      border: 1px solid rgba(50, 160, 150, 0.25);
+    }
+
+    .meta-tag span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #2aae9b;
+      border-radius: 50%;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin: 32px 0 40px;
+    }
+
+    @media (min-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .card-wide {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 24px 22px 26px;
+      box-shadow: 0 4px 14px rgba(0, 70, 70, 0.06), 0 0 0 1px rgba(0, 140, 120, 0.08);
+      transition: transform 0.18s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0, 90, 80, 0.10), 0 0 0 1px rgba(0, 160, 135, 0.18);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #124a4f;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title .emoji-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: #d6f0eb;
+      border-radius: 40px;
+      font-size: 1.2rem;
+      color: #0b6a5e;
+    }
+
+    .card p, .card li {
+      font-size: 0.96rem;
+      color: #2a3e47;
+      margin-bottom: 4px;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 6px;
+    }
+
+    .card ul li {
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    .card ul li::before {
+      content: "·";
+      position: absolute;
+      left: 4px;
+      color: #2aae9b;
+      font-weight: 700;
+    }
+
+    .highlight-link-wrap {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 22px 24px 24px;
+      margin: 16px 0 28px;
+      box-shadow: 0 4px 12px rgba(0, 80, 70, 0.06);
+      border-left: 5px solid #279b88;
+    }
+
+    .highlight-link-wrap p {
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .inline-link {
+      color: #117a6b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid rgba(30, 160, 135, 0.3);
+      transition: border-color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #117a6b;
+    }
+
+    .faq-mini {
+      background: #eef7f5;
+      border-radius: 24px;
+      padding: 22px 24px 20px;
+      margin: 32px 0 24px;
+    }
+
+    .faq-mini details {
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(0, 130, 110, 0.12);
+      padding-bottom: 8px;
+    }
+
+    .faq-mini details:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #074e48;
+      cursor: pointer;
+      padding: 4px 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .faq-mini summary::before {
+      content: "▸";
+      color: #2aae9b;
+      font-size: 1.1rem;
+      transition: transform 0.1s ease;
+    }
+
+    .faq-mini details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-mini .answer {
+      margin-top: 6px;
+      padding-left: 18px;
+      color: #254e52;
+      font-size: 0.95rem;
+    }
+
+    .section-tip {
+      background: linear-gradient(110deg, #e4f3f0, #d7ece8);
+      border-radius: 32px;
+      padding: 28px 24px;
+      margin: 30px 0 20px;
+      text-align: center;
+    }
+
+    .section-tip p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: #1b5151;
+    }
+
+    .footer-note {
+      margin-top: 36px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #5b777a;
+      border-top: 1px solid rgba(0, 120, 100, 0.12);
+      padding-top: 24px;
+    }
+
+    .footer-note a {
+      color: #117a6b;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 140, 120, 0.2);
+    }
+
+    .footer-note a:hover {
+      border-bottom-color: #074e48;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .hero .sub {
+        font-size: 0.95rem;
+        padding: 6px 14px 8px;
+      }
+      .card {
+        padding: 18px 16px 20px;
+      }
+      .highlight-link-wrap {
+        padding: 18px 16px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO 主视觉 -->
+  <header class="hero">
+    <h1>📇 资料集 · 九游娱乐</h1>
+    <div class="sub">从信息整理到索引聚合，一份轻量级卡片笔记</div>
+    <div class="meta-tag">
+      <span></span> 网格卡片 · 蓝绿调 · 生活索引
+    </div>
+  </header>
+
+  <!-- 网格卡片区：用途 / 人群 / 场景 -->
+  <div class="card-grid">
+    <!-- 卡片：信息用途 -->
+    <div class="card">
+      <div class="card-title">
+        <span class="emoji-badge">🗂️</span> 用途卡片
+      </div>
+      <p>日常资料归档、兴趣索引、快速回顾。适合把碎片化信息和平台动态整理成结构化的条目，方便自己或小团队调阅。</p>
+      <ul>
+        <li>内容分类与标签管理</li>
+        <li>平台动态速览</li>
+        <li>个人兴趣节点整理</li>
+      </ul>
+    </div>
+
+    <!-- 卡片：适合人群 -->
+    <div class="card">
+      <div class="card-title">
+        <span class="emoji-badge">👥</span> 适合的人群
+      </div>
+      <ul>
+        <li>喜欢整理数字收藏的爱好者</li>
+        <li>需要轻量信息索引的日常用户</li>
+        <li>对娱乐资讯保持关注的生活家</li>
+        <li>内容编辑与资料梳理者</li>
+      </ul>
+    </div>
+
+    <!-- 卡片：场景示例 — 宽卡 -->
+    <div class="card card-wide">
+      <div class="card-title">
+        <span class="emoji-badge">🌿</span> 索引场景举例
+      </div>
+      <p>生活中常有这样的时刻：想快速回看某个兴趣主题的笔记，或想和朋友分享一个常逛的平台。把相关链接和简介收进卡片，比浏览器书签更直观。像整理一本私人杂志，随时翻看。</p>
+      <p style="margin-top: 6px;">比如在聊天时提起某家平台，直接给对方看一段精炼的介绍卡片，比口头描述更清晰。</p>
+    </div>
+  </div>
+
+  <!-- 自然链接段落（a标签可见文本严格等于"九游娱乐"） -->
+  <div class="highlight-link-wrap">
+    <p>📌 在日常资料索引中，我会把常用平台和兴趣站点做成独立卡片。其中就包括 <a href="https://indexportal-jiuyou.com" class="inline-link">九游娱乐</a>，作为信息流里一个常驻的索引节点。它帮助我把相关动态和分类笔记聚合在一起，节省来回翻找的时间。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <details>
+      <summary>这个索引卡片怎么用？</summary>
+      <div class="answer">可以当作个人资料页，也可以分享给朋友。每一张卡片对应一个主题，点击链接直接跳转到对应平台。适合手机和电脑浏览。</div>
+    </details>
+    <details>
+      <summary>内容会更新吗？</summary>
+      <div class="answer">不定期整理和补充，保持卡片鲜活。所有链接来自公开索引，不包含隐私或敏感信息。</div>
+    </details>
+    <details>
+      <summary>为什么选择九游娱乐作为节点？</summary>
+      <div class="answer">因为它在娱乐信息领域有一定覆盖度，且更新较为稳定。作为资料整理的一个锚点，方便后续扩展标签。</div>
+    </details>
+  </div>
+
+  <!-- 提示 / 自然段落 -->
+  <div class="section-tip">
+    <p>✨ 把资料整理成卡片，就像给生活做了一次轻扫除。不用面面俱到，只要合手就好。</p>
+  </div>
+
+  <!-- 页脚 — 包含补充链接（第二个a标签，但可见文本仍为"九游娱乐"） -->
+  <footer class="footer-note">
+    <p>基于个人兴趣整理的索引 · 内容来源包括 <a href="https://indexportal-jiuyou.com">九游娱乐</a> 及其他公开信息 · 仅供资料参考</p>
+  </footer>
+
+</div>
+</body>
+</html>
